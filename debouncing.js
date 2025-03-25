@@ -11,16 +11,18 @@
         function fetchParagraph() {
             //fetch paragraph from paragraph.php
             fetch('paragraph.php')
+            // Convert the response to text
                 .then(response => response.text())
                 .then(data => {
                     paragraphElement.textContent = data;
                 })
+                //Error handling
                 .catch(error => {
                     console.error('Error fetching paragraph:', error);
                     paragraphElement.textContent = 'Failed to fetch paragraph.';
                 });
         }
-
+        //calling fetchParagraph function to load the paragraph when the page loads
         fetchParagraph();
 
         wordSearchInput.addEventListener('input', () => {
